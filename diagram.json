@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "author": "Silas Kenji",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -51.25,
+      "left": 224.35,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -25.4,
+      "left": 96.2,
+      "rotate": 180,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 130.8,
+      "left": -25,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 73.2, "left": -25, "attrs": { "color": "blue" } },
+    { "type": "wokwi-led", "id": "led3", "top": 25.2, "left": -25, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 224.75,
+      "left": 19.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 186.35,
+      "left": 19.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 205.55,
+      "left": 19.2,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "btn1:2.l", "pico:GND.1", "black", [ "h0.2", "v172.8" ] ],
+    [ "r3:2", "pico:GND.4", "black", [ "h142.8", "v-96.04" ] ],
+    [ "led3:C", "r2:1", "black", [ "h-28.4", "v124.8" ] ],
+    [ "led3:A", "pico:GP13", "green", [ "h163.2", "v47.96" ] ],
+    [ "led2:C", "r3:1", "black", [ "h-28.4", "v96" ] ],
+    [ "led1:C", "r1:1", "black", [ "h-28.4", "v57.6" ] ],
+    [ "led2:A", "pico:GP12", "green", [ "h153.6", "v-9.64" ] ],
+    [ "led1:A", "pico:GP11", "green", [ "h182.4", "v-76.8" ] ],
+    [ "r1:2", "pico:GND.4", "black", [ "h142.8", "v-115.24" ] ],
+    [ "r2:2", "pico:GND.4", "black", [ "h142.8", "v-67.24" ] ],
+    [ "btn1:1.l", "pico:GP5", "green", [ "v9.6", "h67.2" ] ]
+  ],
+  "dependencies": {}
+}
